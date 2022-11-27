@@ -1,0 +1,383 @@
+Q.1 Do the below programs in anonymous function and iife 
+
+/*
+//---------------------------print odd number------------------------
+        var sum=function(arr){
+       var t=0;
+        for(var i=0;i<arr.length;i++)
+         {
+            if(arr[i]%2!=0)
+           t= console.log(arr[i])
+         }
+        return t;
+        }
+console.log(sum([2,3,4,5,6,7]))
+-------------------------------------------------------------------
+(function(arr){
+     var tot =0;
+     for(var i=0;i<arr.length;i++)
+        {
+            if(arr[i]%2!=0)
+            tot=console.log(arr[i]);
+        }
+        console.log(tot);
+        
+    })([2,3,5,7,9]);
+    */
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+// ------convert all strings to litle caps in a string array--------------------------------------      
+
+        var titleCase = function (string) {
+      var sentence = string.toLowerCase().split(" ");
+//console.log(sentence);
+      for(var i = 0; i<sentence.length; i++){
+         sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+      }
+   console.log(sentence.join(" "));
+   return sentence;
+   }
+   titleCase("guvi geeks english batch");
+   
+---------------------------------------------------------------------------------------------------  
+
+(function(string){
+    var sentence = string.toLowerCase().split(" ");
+//console.log(sentence);
+      for(var i = 0; i<sentence.length; i++){
+         sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+      }
+   console.log(sentence.join(" "));
+})("guvi geeks english batch")
+*/
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ /*
+ ------------------------------to print sum of all element in an array----------------------------------       
+        var sum = function(arr){
+            var tot=0;
+            for(var i=0;i<arr.length;i++)
+            {
+                tot=tot+arr[i];
+            }
+        return tot;
+        }
+        console.log(sum([1,2,3,4,5]))
+
+
+//------------------------------------------------------------------------------------------------------------
+        (function(arr){
+     var tot =0;
+     for(var i=0;i<arr.length;i++)
+        {
+            tot=tot+arr[i];
+        }
+        console.log(tot);
+        
+    })([2,3,5,6,4]);
+    */
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+----------------to print prime number in an array-------------------- 
+        var a = [5,7,71,9, 63, 29, 35, 6, 55, 23]
+var prime = [];
+
+var isPrime=function (item) {
+    var identifier = item / 2;
+      for (var j = 2; j <= identifier; j++) {
+       if ((item % j) == 0) { // modulous
+        return false;
+       } 
+     }
+     return true;
+}
+for (var i = 0; i < a.length; i++) {
+  if (isPrime(a[i])) {
+      prime.push(a[i])
+  }
+}
+
+console.log(prime);
+-------------------------------------------------------------------
+( function(numArray){
+    numArray = numArray.filter((number) => {
+        for (var i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) return false;
+        }
+         return true;
+        });
+        console.log(numArray);
+    })([1,2,3,4,7,9])
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ /*    
+    ---------------------remove duplicate from an array------------------------------------
+        var dup = function(array){
+                        let duplicate = [...new Set(array)];
+                        return duplicate;
+        }
+        console.log(dup([1,2,3,4,5,2,3,4]))
+------------------------------------------------------------------------------        
+
+
+        (function(array){
+                        let dup = [...new Set(array)];
+                        console.log(dup);
+                       })([1,1,2,3,4])
+*/
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+//-------------------rotate array k times----------------
+var RightRotate=function (a, n, k){
+    k = k % n;
+  
+    for (let i = 0; i < n; i++) {
+        if (i < k) {
+  
+            // Printing rightmost
+            // kth elements
+            console.log(a[n + i - k] + " ");
+        }
+        else {
+  
+            // Prints array after
+            // 'k' elements
+            console.log((a[i - k]) + " ");
+        }
+    }
+}
+console.log(RightRotate([1,2,3,4],4,3))
+----------------------------------------------------------------------------------------
+
+(function(a, n, k){
+    k = k % n;
+  
+    for (let i = 0; i < n; i++) {
+        if (i < k) {
+            console.log(a[n + i - k] + " ");
+        }
+        else {
+            console.log((a[i - k]) + " ");
+        }
+    }
+
+})([1,2,3,4],4,3)
+*/
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+/*
+---------------------return all the palindrom from an array------------------
+       const arr = ['carecar', 1344, 12321, 'did', 'cannot'];
+const isPalindrome = function (el) {
+   const str = String(el);
+   let i = 0;
+   let j = str.length - 1;
+   while(i < j) {
+      if(str[i] === str[j]) {
+         i++;
+         j--;
+      }
+      else {
+         return false;
+      }
+   }
+   return true;
+};
+const findPalindrome = arr => {
+   return arr.filter(el => isPalindrome(el));
+};
+console.log(findPalindrome(arr));
+*/
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+///------------------to find median of two sorted array-------------------
+/*
+var getMedian=function (ar1, ar2, n)
+{
+    var i = 0; 
+    var j = 0; 
+    var count;
+    var m1 = -1, m2 = -1;
+ 
+    
+    for (count = 0; count <= n; count++)
+    {
+        
+        if (i == n)
+        {
+            m1 = m2;
+            m2 = ar2[0];
+            break;
+        }
+ 
+        else if (j == n)
+        {
+            m1 = m2;
+            m2 = ar1[0];
+            break;
+        }
+        
+        if (ar1[i] <= ar2[j])
+        {
+            m1 = m2; 
+            m2 = ar1[i];
+            i++;
+        }
+        else
+        {
+            m1 = m2; 
+            m2 = ar2[j];
+            j++;
+        }
+    }
+ 
+    return (m1 + m2)/2;
+}
+console.log(getMedian([1,12,15,26],[2,13,17,30],4))
+------------------------------------------------------------------------------------------------------
+
+(function(ar1, ar2, n){
+    var i = 0; 
+    var j = 0; 
+    var count;
+    var m1 = -1, m2 = -1;
+ 
+    
+    for (count = 0; count <= n; count++)
+    {
+        
+        if (i == n)
+        {
+            m1 = m2;
+            m2 = ar2[0];
+            break;
+        }
+ 
+        else if (j == n)
+        {
+            m1 = m2;
+            m2 = ar1[0];
+            break;
+        }
+        
+        if (ar1[i] <= ar2[j])
+        {
+            m1 = m2; 
+            m2 = ar1[i];
+            i++;
+        }
+        else
+        {
+            m1 = m2; 
+            m2 = ar2[j];
+            j++;
+        }
+    }
+ 
+    console.log((m1 + m2)/2);
+
+})([1,12,15,26],[2,13,17,30],4)
+
+ */      
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.2 Do the below programs in arrow function
+
+-------------to print odd numbers--------------------------
+var sum=(arr)=>{
+    var t=0;
+         for(var i=0;i<arr.length;i++)
+         {
+            if(arr[i]%2!=0)
+           t= console.log(arr[i])
+         }
+        return t;
+        }
+console.log(sum([2,3,4,5,6,7]))
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//------convert all strings to litle caps in a string array-------------------------------------- 
+var titleCase =(string) =>{
+      var sentence = string.toLowerCase().split(" ");
+      for(var i = 0; i<sentence.length; i++){
+         sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+      }
+   console.log(sentence.join(" "));
+   return sentence;
+   }
+   titleCase("guvi geeks english batch");    
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//------------sum of all number in an array---------------------------------------
+var sum =(arr)=>{
+            var tot=0;
+            for(var i=0;i<arr.length;i++)
+            {
+                tot=tot+arr[i];
+            }
+        return tot;
+        }
+        console.log(sum([1,2,3,4,5]))
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//-----------------return all palindroms in an array----------------------------------
+const arr = ['carecar', 1344, 12321, 'did', 'cannot','adada'];
+const isPalindrome = el => {
+   const str = String(el);
+   let i = 0;
+   let j = str.length - 1;
+   while(i < j) {
+      if(str[i] === str[j]) {
+         i++;
+         j--;
+      }
+      else {
+         return false;
+      }
+   }
+   return true;
+};
+const findPalindrome = arr => {
+   return arr.filter(el => isPalindrome(el));
+}
+console.log(findPalindrome(arr));
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//------------------------return all prime number in an array---------------------------------------------
+ var a = [5,7,71,9, 63, 29, 35, 6, 55, 23]
+var prime = [];
+
+var isPrime=(item)=>{
+    var identifier = item / 2;
+      for (var j = 2; j <= identifier; j++) {
+       if ((item % j) == 0) { // modulous
+        return false;
+       } 
+     }
+     return true;
+}
+for (var i = 0; i < a.length; i++) {
+  if (isPrime(a[i])) {
+      prime.push(a[i])
+  }
+}
+
+console.log(prime);
+
